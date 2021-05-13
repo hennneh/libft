@@ -8,3 +8,5 @@ malloc?!?!?!?
 ft_memmove correct?!
 fix all the headers
 ft_strchr correct? -> comment in code
+
+https://www.notion.so/42wolfsburg/The-42-Wolfsburg-Metaverse-ac8c1f2c1f274e0693c22e3f13017979
