@@ -1,0 +1,10 @@
+learn about relinking in makefiles
+learn about rules for makefiles
+what are global variables in c
+what are static functions
+what is the ar command to create the library
+what is size_t for strlen instead of unsigned int
+malloc?!?!?!?
+ft_memmove correct?!
+fix all the headers
+ft_strchr correct? -> comment in code
