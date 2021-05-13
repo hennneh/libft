@@ -1,12 +1,12 @@
 NAME = libft.a
 
-CC = gcc
+COMPILER = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 HEADER = libft.h
 
-SRC =	ft_memset.c
+FILES =	ft_memset.c
 		ft_bzero.c
 		ft_memcpy.c
 		ft_memccpy.c
@@ -28,3 +28,21 @@ SRC =	ft_memset.c
 		ft_isprint.c
 		ft_toupper.c
 		ft_tolower.c
+
+:all $(NAME)
+
+$(NAME): $(OBJ)
+	ar rc $(NAME) $^
+	ranlib $(NAME)
+
+bonus: $(OBJBONUS)
+	ar rc $(NAME) $^
+	ranlib $(NAME)
+
+clean:
+	rm -f $(OBJBONUS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
