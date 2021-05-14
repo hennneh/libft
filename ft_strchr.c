@@ -15,16 +15,15 @@
 char	*strchr(const char *s, int c)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-			return (s + i);
+			return (((char *)s) + i);
 		i++;
 	}
 	if (c == '\0')
-		return (s + i);
+		return (((char *)s) + i);
 	return (NULL);
 }

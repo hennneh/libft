@@ -14,29 +14,24 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	sign;
-	int	num;
+	size_t	i;
+	int		sign;
+	int		num;
 
+	i = 0;
 	sign = 1;
 	num = 0;
-	while (*nptr == ' ' || *nptr == '\n'
-		|| *nptr == '\t' || *nptr == '\v'
-		|| *nptr == '\f' || *nptr == '\r')
-		*nptr++;
-	if (*nptr == '+')
-		*nptr++;
-	if (*nptr == '-')
+	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == 43 || nptr[i] == 45)
 	{
-		*nptr++;
-		sign *= -1;
+		if (nptr[i] == 45)
+			sign *= -1;
 	}
-	while (*nptr != '\0')
+	while (nptr[i] > 47 && nptr[i] < 58)
 	{
-		if (*nptr < 48 || *nptr > 57)
-			break ;
-		else
-			num = (num * 10) + (*nptr - 48);
-		*nptr++;
+		num = num * 10 + nptr[i] - '0';
+		i++;
 	}
 	return (num * sign);
 }
