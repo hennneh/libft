@@ -9,3 +9,4 @@ ft_memmove correct?!
 fix all the headers
 ft_strchr correct? -> comment in code
 is ft_strlcat.c returning the correct value? 
+is ft_itoa.c returning NULL if malloc fails?

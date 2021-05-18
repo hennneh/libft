@@ -12,21 +12,21 @@
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*d;
+	size_t	len1;
+	size_t	len2;
+	char	*dest;
 
-	i = 0;
-	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
-	while (n > i)
-	{
-		d[i] = s[i];
-		if (s[i] == c)
-			return (dest + i + 1);
-		i++;
-	}
-	return (NULL);
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	dest = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (!dest)
+		return (NULL);
+	ft_memcpy(dest, s1, len1);
+	ft_memcpy(&dest[len1], s2, len2);
+	dest[len1 + len2] = '\0';
+	return (dest);
 }

@@ -12,21 +12,23 @@
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*d;
+	char	*dest;
+	size_t	i;
+	int		j;
 
+	dest = NULL;
 	i = 0;
-	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
-	while (n > i)
+	if ((j = ft_strlen(s1)))
+		j--;
+	if (s1)
 	{
-		d[i] = s[i];
-		if (s[i] == c)
-			return (dest + i + 1);
-		i++;
+		while (s1[i] && ft_strchr(set, s1[i]))
+			i++;
+		while (j >= 0 && ft_strchr(set, s1[j]))
+			j--;
+		dest = ft_substr(s1, i, (j - i + 1));
 	}
-	return (NULL);
+	return (dest);
 }

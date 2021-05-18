@@ -12,21 +12,46 @@
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+int	ft_digits(int n)
 {
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*d;
+	int	digits;
 
-	i = 0;
-	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
-	while (n > i)
+	digits = 0;
+	if (n <= 0)
+		digits++;
+	while (n)
 	{
-		d[i] = s[i];
-		if (s[i] == c)
-			return (dest + i + 1);
-		i++;
+		digits++;
+		n = n / 10;
 	}
-	return (NULL);
+	return (digits);
+}
+
+char	*ft_itoa(int n)
+{
+	int		digits;
+	char	*dest;
+	long	nlong;
+
+	digits = ft_digits(n);
+	dest = malloc(sizeof(char) * digits + 1);
+	nlong = n;
+	if (!dest)
+		return (NULL);
+	if (nlong < 0)
+	{
+		dest[0] = '-';
+		nlong *= -1;
+	}
+	if (n == 0)
+		dest[0] = '0';
+	dest[digits] = '\0';
+	digits--;
+	while (nlong)
+	{
+		dest[digits] = nlong % 10 + '0';
+		digits--;
+		nlong = nlong / 10;
+	}
+	return (dest);
 }
