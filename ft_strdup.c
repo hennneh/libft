@@ -26,5 +26,6 @@ char	*ft_strdup(const char *s)
 		dest[i] = s[i];
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
