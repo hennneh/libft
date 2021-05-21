@@ -43,6 +43,10 @@ SRCS =	ft_memset.c \
 
 OBJS = $(SRCS:.c=.o)
 
+SRCSBONUS = ft_lstsize.c
+
+OBJSBONUS = $(SRCSBONUS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -51,8 +55,11 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
+bonus: $(OBJS) $(OBJSBONUS)
+	ar rcs $(NAME) $(OBJS) $(OBJSBONUS)
+
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJSBONUS)
 
 fclean: clean
 	$(RM) $(NAME)
