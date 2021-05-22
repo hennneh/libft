@@ -43,7 +43,8 @@ SRCS =	ft_memset.c \
 
 OBJS = $(SRCS:.c=.o)
 
-SRCSBONUS = ft_lstsize.c
+SRCSBONUS = ft_lstsize.c \
+			ft_lstnew.c 
 
 OBJSBONUS = $(SRCSBONUS:.c=.o)
 
