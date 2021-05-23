@@ -43,21 +43,27 @@ SRCS =	ft_memset.c \
 
 OBJS = $(SRCS:.c=.o)
 
-SRCSBONUS = ft_lstsize.c \
-			ft_lstnew.c 
+SRCSBONUS = ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c
 
 OBJSBONUS = $(SRCSBONUS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 bonus: $(OBJS) $(OBJSBONUS)
-	ar rcs $(NAME) $(OBJS) $(OBJSBONUS)
+	ar rc $(NAME) $(OBJS) $(OBJSBONUS)
 
 clean:
 	$(RM) $(OBJS) $(OBJSBONUS)
