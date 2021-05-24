@@ -19,7 +19,7 @@ static int	ft_words(char const *s, char c)
 
 	i = 0;
 	words = 0;
-	while (s[i] == c)
+	while (s[i] && s[i] == c)
 		i++;
 	while (s[i])
 	{
@@ -39,7 +39,7 @@ static int	ft_length(char const *s, char c, int a)
 
 	i = 0;
 	len = 0;
-	while (s[i] == c)
+	while (s[i] && s[i] == c)
 		i++;
 	while (a)
 	{
@@ -66,7 +66,7 @@ static char	*ft_copy(char const *s, char c, int a)
 	word = (char *)malloc(sizeof(char) * ft_length(s, c, a) + 1);
 	if (!word)
 		return (NULL);
-	while (s[i] == c)
+	while (s[i] && s[i] == c)
 		i++;
 	while (a)
 	{
@@ -102,7 +102,7 @@ char	**ft_split(char const *s, char c)
 	int		words;
 	int		i;
 
-	if (!s || !c)
+	if (!s)
 		return (NULL);
 	words = ft_words(s, c);
 	dest = (char **)malloc(sizeof(char *) * (words + 1));
